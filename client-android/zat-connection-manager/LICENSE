@@ -1,0 +1,22 @@
+ZAT client — zat-connection-manager (the connection engine + sing-box/libbox glue)
+Copyright (C) 2026 the ZAT project
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/> or the COPYING file
+in client-android/.
+
+WHY GPL: this module links sing-box / libbox (GPL-3.0-or-later, © the SagerNet
+contributors) in-process (JNI), making the client a combined work under the
+GPL. The shared crypto crates (mesh-oprf-rs, zat-oprf-client, zat-threshold-oprf)
+are MIT (see LICENSE-MIT). The ZAT broker + volunteer are separate,
+non-distributed works and are NOT under this license. Full map:
+docs/LICENSING_v0.1.md; third-party notices: client-android/NOTICE.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- P1 theme: a plain Material Components DayNight theme. Real branding (colors, typography,
+         icon) is P3. -->
+    <style name="Theme.ZatApp" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+</resources>

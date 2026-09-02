@@ -1,0 +1,29 @@
+# ── zat-connection-manager (ZAT VPN core module) ──
+
+# Build output
+build/
+.cxx/
+.gradle/
+bin/
+*.apk
+
+# Vendored upstream dependencies — to be tracked as git submodules (see DEPS.md),
+# not committed as blobs. Checked out side-by-side for native builds.
+src/main/cpp/openvpn3/
+src/main/cpp/deps/
+
+# Vendored sing-box engine (libbox) — built reproducibly via
+# ../sing-box-libbox/Dockerfile, split into the JNI jar + per-ABI native core
+# (~100 MB). Regenerate from the Dockerfile rather than committing.
+libs/libbox.jar
+src/main/jniLibs/
+
+# IDE
+.idea/
+*.iml
+
+# Secrets (defense in depth — never commit)
+.env
+.env.*
+*.keystore
+*.jks

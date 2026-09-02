@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- The library fetches the bootstrap/control plane and runs the tunnel. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- REQUIRED by the sing-box default-interface monitor (ConnectivityManager): without it,
+         registerNetworkCallback throws SecurityException, the monitor never reports the underlying
+         interface, and every reach-over-Reality match outbound fails "no available network interface"
+         → degrades to single-hop. Declared here (the library needs it) so every consumer merges it. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <!--
+            ZatVpnService — Phase 8.2
+            App-only split tunneling VPN service.
+            android:permission ensures only the system can bind to this service.
+            android:exported="false" prevents external apps from starting it.
+        -->
+        <service
+            android:name=".vpn.ZatVpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
+

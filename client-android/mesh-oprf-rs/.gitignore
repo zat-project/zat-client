@@ -1,0 +1,3 @@
+# Built artifacts — regenerate with ./build.sh (needs cargo-ndk + an Android NDK).
+/target
+/jniLibs

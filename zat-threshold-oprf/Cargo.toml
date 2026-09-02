@@ -1,0 +1,19 @@
+[package]
+name = "zat-threshold-oprf"
+version = "0.1.0"
+edition = "2021"
+description = "ZAT B2a — verifiable THRESHOLD VOPRF (ristretto255-SHA512) whose proof the unmodified voprf 0.5 client accepts. Dissolves the single-key OPRF issuer; no party holds k."
+license = "MIT"
+publish = false
+
+[dependencies]
+# Raw ristretto255 group math for the threshold eval + DLEQ (bytes are the interface to voprf,
+# so this version is independent of what voprf pins internally).
+curve25519-dalek = { version = "4", features = ["rand_core"] }
+sha2 = "0.10"
+rand = "0.8"
+
+[dev-dependencies]
+frost-ristretto255 = "3"
+# The de-risk: the UNMODIFIED client must accept our threshold-produced (E, proof).
+voprf = { version = "0.5", features = ["alloc"] }

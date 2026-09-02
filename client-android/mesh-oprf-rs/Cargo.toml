@@ -1,0 +1,25 @@
+[package]
+name = "meshoprf"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+# cdylib → the Android .so (via cargo-ndk); rlib → host unit tests.
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# E2: forward the `self-test` diagnostic feature to the core crate. OFF by default so the SHIPPED
+# `libmeshoprf.so` (built by build.sh without the flag) carries no server-side `VoprfServer`; a dev
+# build (`MESHOPRF_SELF_TEST=1 ./build.sh` → `--features self-test`) includes the on-device round.
+self-test = ["zat-oprf-client/self-test"]
+
+[dependencies]
+# All the OPRF client crypto (blind/finalize + the B2a threshold coordinator) lives in the shared
+# crate; this crate only re-exports it + adds the JNI bridge. The volunteer's seal uses the same
+# shared crate directly (no JNI), so there is one tested implementation, not two.
+zat-oprf-client = { path = "../../zat-oprf-client" }
+
+[target.'cfg(target_os = "android")'.dependencies]
+jni = { version = "0.21", default-features = false }

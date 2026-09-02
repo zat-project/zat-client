@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZAT</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="status_disconnected">Not connected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_reconnecting">Reconnecting…</string>
+    <string name="status_error">Couldn\'t connect — tap to retry</string>
+    <string name="status_permission_denied">VPN permission needed to connect</string>
+
+    <!-- P1.4 · First-run onboarding. Honest by rule (PRIVACY_MODEL §11): no "untraceable",
+         "unblockable", or "anonymous". Every line is a plain, defensible statement. -->
+    <string name="onboarding_title">Welcome to ZAT</string>
+    <string name="onboarding_what">ZAT helps you reach the open internet when your network blocks it. Tap Connect and it finds a working route on its own.</string>
+
+    <string name="onboarding_privacy_title">What ZAT does with your data</string>
+    <!-- Each bullet is a property of the code, not a promise. -->
+    <string name="onboarding_privacy_1">Your traffic is encrypted end-to-end. The bridges that carry it cannot read what you do.</string>
+    <string name="onboarding_privacy_2">ZAT never records your IP address. There is no account and no sign-up.</string>
+    <string name="onboarding_privacy_3">If a route stops working, ZAT quietly switches to another.</string>
+
+    <!-- The honest-limits screen. This is the part most apps skip; it is the part that earns trust. -->
+    <string name="onboarding_honesty_title">What ZAT does not promise</string>
+    <string name="onboarding_honesty_body">No tool can make you invisible, and we won\'t pretend otherwise. A determined network operator may still detect that you are using a circumvention tool, or block a route. ZAT is built to make that difficult and to recover when it happens — not to guarantee it never will.</string>
+
+    <string name="onboarding_continue">Get started</string>
+    <string name="onboarding_learn_more">How it works</string>
+
+    <!-- Shown on the main screen, small, always visible: sets the honest expectation without a wall of text. -->
+    <string name="tagline">Reach the open internet. Encrypted, no account, no logs.</string>
+
+    <!-- Invite-graph (P3.1): paste a received tier credential; create an invitation to share. -->
+    <string name="invite_title">Invitations</string>
+    <string name="invite_message">Have an invitation? Paste it here for faster, more reliable connections. You don\'t need one — ZAT works without it.</string>
+    <string name="invite_credential_hint">Paste your credential here</string>
+    <string name="invite_save">Save</string>
+    <string name="invite_create">Create invitation</string>
+    <string name="invite_saved">Credential saved</string>
+    <string name="invite_need_credential">Add your credential first</string>
+    <string name="invite_creating">Creating invitation…</string>
+    <string name="invite_failed">Couldn\'t create an invitation</string>
+    <string name="invite_share_title">Invitation created</string>
+    <string name="invite_share_message">Share this with the person you\'re inviting.</string>
+    <string name="invite_copy">Copy</string>
+    <string name="invite_copied">Copied</string>
+    <string name="close">Close</string>
+
+    <!-- #46 · The tester's report. Reached by LONG-PRESSING the status line: discoverable to someone
+         we have told, invisible to everyone else, and it adds nothing a screenshot of the normal
+         screen would reveal. Channel NUMBERS only — never their addresses. -->
+    <string name="diag_title">Connection report</string>
+    <string name="diag_intro">Numbers only — no addresses, and nothing about you. Send this to whoever asked you to test.</string>
+    <string name="diag_working">Routes that answered: %1$s</string>
+    <string name="diag_none">No route answered</string>
+    <string name="diag_failed">Did not answer: %1$s</string>
+    <string name="diag_source">Settings came from: %1$s</string>
+    <string name="diag_stage">Got as far as: %1$s</string>
+    <string name="diag_broker">Times the central server was needed: %1$d</string>
+    <string name="diag_peer_refresh">A peer also served a newer copy (after connecting)</string>
+    <string name="diag_copy">Copy</string>
+    <string name="diag_copied">Copied</string>
+    <string name="diag_close">Close</string>
+</resources>

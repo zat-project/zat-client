@@ -1,0 +1,3 @@
+# The built libbox.aar (~72 MB) is a reproducible artifact — regenerate it with
+# the Dockerfile (`docker build --output type=local,dest=./out .`), don't commit it.
+out/

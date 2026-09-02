@@ -1,0 +1,22 @@
+[package]
+name = "zat-oprf-client"
+version = "0.1.0"
+edition = "2021"
+description = "ZAT mesh OPRF client-side crypto (ristretto255-SHA512): blind/finalize byte-compatible with @cloudflare/voprf-ts + the B2a threshold Coordinator. Shared by the Android client (mesh-oprf-rs JNI) and the volunteer seal."
+license = "MIT"
+publish = false
+
+[features]
+# E2 (release-readiness): the on-device `self_test` diagnostic pulls in `VoprfServer` (server-side
+# OPRF). OFF by default so the SHIPPED client binary carries NO server-side crypto; a dev/diagnostic
+# build turns it on (`--features self-test`). The client blind/finalize + threshold coordinator are
+# unaffected (they never need a server).
+self-test = []
+
+[dependencies]
+voprf = { version = "0.5", features = ["alloc"] }
+sha2 = "0.10"
+rand = "0.8"
+# The B2a threshold Coordinator (combine the committee's Round1/Round2 into the voprf-ts
+# `evaluation` blob `finalize` consumes). Same curve25519-dalek 4 as voprf → the bytes interop.
+zat-threshold-oprf = { path = "../zat-threshold-oprf" }

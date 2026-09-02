@@ -1,0 +1,22 @@
+ZAT client — third-party notices
+=================================
+
+This client is licensed GPL-3.0-or-later (see COPYING). It includes the following
+third-party components:
+
+sing-box / libbox
+  Copyright (C) the SagerNet contributors
+  License: GPL-3.0-or-later  <https://github.com/SagerNet/sing-box>
+  Bundled UNMODIFIED as lib/<abi>/libbox.so, built from a pinned upstream tag
+  (client-android/sing-box-libbox/Dockerfile). The GPL grants no right to use the
+  "sing-box" name/branding or imply association; ZAT is not sing-box and does not
+  claim to be. Corresponding source = that pinned upstream tag.
+
+ZAT shared crypto (mesh-oprf-rs, zat-oprf-client, zat-threshold-oprf)
+  Copyright (C) 2026 the ZAT project
+  License: MIT (see LICENSE-MIT) — GPL-compatible; also used by the closed
+  broker/volunteer, which is why it is permissive rather than GPL.
+
+Corresponding source for the GPL parts of this client is published per
+docs/LICENSING_v0.1.md. Other ZAT components (broker, volunteer app, committee
+crates) are separate, non-distributed works and are not covered here.

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Persian (fa) — ZAT's primary user population. Mirrors values/strings.xml.
+     Honest by rule (PRIVACY_MODEL §11): no equivalent of "untraceable / unblockable / anonymous". -->
+<resources>
+    <string name="app_name">ZAT</string>
+    <string name="connect">اتصال</string>
+    <string name="disconnect">قطع اتصال</string>
+    <string name="status_disconnected">متصل نیست</string>
+    <string name="status_connecting">در حال اتصال…</string>
+    <string name="status_connected">متصل</string>
+    <string name="status_reconnecting">در حال اتصال دوباره…</string>
+    <string name="status_error">اتصال برقرار نشد — برای تلاش دوباره لمس کنید</string>
+    <string name="status_permission_denied">برای اتصال به اجازهٔ VPN نیاز است</string>
+
+    <string name="onboarding_title">به ZAT خوش آمدید</string>
+    <string name="onboarding_what">ZAT به شما کمک می‌کند وقتی شبکه‌تان اینترنت را مسدود کرده، به آن دسترسی پیدا کنید. روی «اتصال» بزنید تا خودش یک مسیرِ کارآمد پیدا کند.</string>
+
+    <string name="onboarding_privacy_title">ZAT با اطلاعات شما چه می‌کند</string>
+    <string name="onboarding_privacy_1">ترافیک شما سرتا‌سر رمزنگاری‌شده است. پل‌هایی که آن را حمل می‌کنند نمی‌توانند ببینند چه می‌کنید.</string>
+    <string name="onboarding_privacy_2">ZAT هرگز نشانی IP شما را ثبت نمی‌کند. نه حسابی هست و نه ثبت‌نامی.</string>
+    <string name="onboarding_privacy_3">اگر مسیری از کار بیفتد، ZAT بی‌سروصدا به مسیرِ دیگری می‌رود.</string>
+
+    <string name="onboarding_honesty_title">ZAT چه چیزی را وعده نمی‌دهد</string>
+    <string name="onboarding_honesty_body">هیچ ابزاری نمی‌تواند شما را نامرئی کند و ما هم وانمود نمی‌کنیم. یک ناظرِ مصمّمِ شبکه ممکن است همچنان تشخیص دهد که از ابزارِ عبور از فیلترینگ استفاده می‌کنید، یا مسیری را مسدود کند. ZAT طوری ساخته شده که این کار را دشوار کند و پس از رخ‌دادنش بازیابی شود — نه اینکه تضمین کند هرگز رخ نمی‌دهد.</string>
+
+    <string name="onboarding_continue">شروع کنیم</string>
+    <string name="onboarding_learn_more">چطور کار می‌کند</string>
+
+    <string name="tagline">دسترسی به اینترنتِ آزاد. رمزنگاری‌شده، بدون حساب، بدون لاگ.</string>
+
+    <string name="invite_title">دعوت‌نامه‌ها</string>
+    <string name="invite_message">دعوت‌نامه‌ای دارید؟ برای اتصالِ سریع‌تر و پایدارتر اینجا واردش کنید. لازم نیست داشته باشید — ZAT بدون آن هم کار می‌کند.</string>
+    <string name="invite_credential_hint">دعوت‌نامهٔ خود را اینجا وارد کنید</string>
+    <string name="invite_save">ذخیره</string>
+    <string name="invite_create">ساخت دعوت‌نامه</string>
+    <string name="invite_saved">دعوت‌نامه ذخیره شد</string>
+    <string name="invite_need_credential">ابتدا دعوت‌نامهٔ خود را اضافه کنید</string>
+    <string name="invite_creating">در حال ساخت دعوت‌نامه…</string>
+    <string name="invite_failed">ساخت دعوت‌نامه ممکن نشد</string>
+    <string name="invite_share_title">دعوت‌نامه ساخته شد</string>
+    <string name="invite_share_message">این را با کسی که دعوت می‌کنید به اشتراک بگذارید.</string>
+    <string name="invite_copy">کپی</string>
+    <string name="invite_copied">کپی شد</string>
+    <string name="close">بستن</string>
+
+    <!-- #46 · گزارشِ تستر. با نگه‌داشتنِ طولانیِ خطِ وضعیت باز می‌شود. فقط شماره — هیچ آدرسی. -->
+    <string name="diag_title">گزارش اتصال</string>
+    <string name="diag_intro">فقط شماره — نه آدرسی، نه چیزی دربارهٔ شما. این را برای کسی که از شما خواست تست کنید بفرستید.</string>
+    <string name="diag_working">مسیرهایی که جواب دادند: %1$s</string>
+    <string name="diag_none">هیچ مسیری جواب نداد</string>
+    <string name="diag_failed">جواب ندادند: %1$s</string>
+    <string name="diag_source">تنظیمات از این‌جا آمد: %1$s</string>
+    <string name="diag_stage">تا این مرحله پیش رفت: %1$s</string>
+    <string name="diag_broker">چند بار به سرورِ مرکزی نیاز شد: %1$d</string>
+    <string name="diag_peer_refresh">یک همتا هم نسخهٔ تازه‌تری داد (بعد از اتصال)</string>
+    <string name="diag_copy">کپی</string>
+    <string name="diag_copied">کپی شد</string>
+    <string name="diag_close">بستن</string>
+</resources>

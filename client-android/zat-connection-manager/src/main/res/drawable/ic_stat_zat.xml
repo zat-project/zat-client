@@ -1,0 +1,15 @@
+<!-- ZAT status-bar / foreground-service notification icon: a simplified white "Z" (the ZAT mark, the
+     round line-caps standing in for the mesh nodes so it stays legible at 24dp). Flat white silhouette
+     on transparent — Android tints it to the system colour. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M7,7 L17,7 L7,17 L17,17" />
+</vector>

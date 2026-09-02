@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ZAT network security policy.
+
+  Cleartext HTTP is blocked app-wide (the platform default at our targetSdk 33), because every
+  ZAT control/data channel is either HTTPS or rides an encrypted Reality tunnel. The SOLE
+  exception is the A2 shard-read placeholder host `shard.zat`: the client reads a shard's
+  loopback HTTP (`http://shard.zat:<shardPort>`) THROUGH an already-encrypted Reality tunnel —
+  the `http://` is the INNER hop (OkHttp -> local SOCKS -> Reality), never a cleartext byte on
+  the wire. Android's NetworkSecurityPolicy is enforced at the OkHttp layer BEFORE the SOCKS
+  hop, so without this allow-entry the shard-read is refused before it can enter the tunnel —
+  this was the A2 on-device blocker (the broker path worked only because it is https://). Scoped
+  to EXACTLY `shard.zat` so nothing else may ever go cleartext. Keep in sync with the client's
+  SHARD_READ_HOST (VpnManager) + the volunteer's domain-override rule (singbox.rs).
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">shard.zat</domain>
+    </domain-config>
+</network-security-config>

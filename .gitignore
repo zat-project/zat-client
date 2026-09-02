@@ -1,0 +1,16 @@
+# Build outputs
+**/build/
+**/.gradle/
+**/target/
+# Native libraries are built from source (see README) — never commit binaries
+**/jniLibs/**/*.so
+**/*.aar
+libbox.so
+libmeshoprf.so
+# Signing material / local secrets — never commit
+*.jks
+*.keystore
+*.p12
+*.pem
+keystore.properties
+local.properties

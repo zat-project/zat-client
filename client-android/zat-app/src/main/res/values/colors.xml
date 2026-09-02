@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ZAT brand palette (D4 scaffold). Swap these for the final brand colors; the launcher icon
+     background + foreground accents reference them, so the whole icon re-themes from here. -->
+<resources>
+    <color name="zat_brand">#1565C0</color>
+    <color name="zat_on_brand">#FFFFFF</color>
+    <color name="ic_launcher_background">#1565C0</color>
+</resources>
