@@ -43,6 +43,25 @@ The two native libraries are built from source, then assembled into the app:
    (see `client-android/zat-app/README.md`).
 4. `cd client-android/zat-app && ./gradlew assembleRelease`  (or `bundleRelease` for an AAB).
 
+## How generative AI is used in this project
+
+Stated here because NLnet's GenAI policy asks a codebase to declare it in its readme, and because
+anyone reading this source is entitled to know how it was made.
+
+**Most of the code in this repository was written by a large language model** (Claude Opus 5,
+Anthropic) working as an engineering pair with the project's maintainer. The maintainer sets the
+architecture, decides what is built and what is rejected, runs the tests, reads the live logs, and is
+accountable for what ships. The model implements, and separately attacks the designs.
+
+The review procedure is written down and binding rather than informal: every design is attacked by two
+independent adversarial reviews **before any code is written**, and a claim that cannot name the
+artifact it was measured against does not enter the project's decision record. At the time of this
+release that record holds 61 findings and 22 proposed designs, **all 22 refuted** — none of them
+shipped.
+
+Provenance is carried in the git history: commits produced this way carry a `Co-Authored-By` trailer
+naming the model. Human judgement, not the model, decides what is correct.
+
 ## sing-box attribution
 
 sing-box is © the SagerNet contributors, GPL-3.0-or-later,
