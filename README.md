@@ -15,8 +15,8 @@ source. It contains **only** the code that ships inside the client binary.
 
 | Path | License |
 |------|---------|
-| `client-android/zat-app`, `client-android/zat-connection-manager` | **GPL-3.0-or-later** (see `client-android/COPYING`) |
-| `client-android/mesh-oprf-rs`, `zat-oprf-client`, `zat-threshold-oprf` | **MIT** (see `LICENSE-MIT`) |
+| `client-android/zat-app`, `client-android/zat-connection-manager` | **GPL-3.0-or-later** (see `LICENSE`) |
+| `client-android/mesh-oprf-rs`, `zat-oprf-client`, `zat-threshold-oprf` | **MIT** (see `LICENSES/MIT.txt`) |
 | `client-android/sing-box-libbox` | build recipe for sing-box/`libbox` (GPL-3.0-or-later, © SagerNet) |
 
 The client links **sing-box / `libbox`** (GPL-3.0-or-later) in-process (JNI), which makes
