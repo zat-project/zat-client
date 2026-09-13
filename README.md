@@ -49,18 +49,17 @@ Stated here because NLnet's GenAI policy asks a codebase to declare it in its re
 anyone reading this source is entitled to know how it was made.
 
 **Most of the code in this repository was written by a large language model** (Claude Opus 5,
-Anthropic) working as an engineering pair with the project's maintainer. The maintainer sets the
-architecture, decides what is built and what is rejected, runs the tests, reads the live logs, and is
-accountable for what ships. The model implements, and separately attacks the designs.
+Anthropic) working under the direction of the project's maintainer. The maintainer sets the goal and
+the direction, decides at each stage what is built and what is dropped, pays for and operates the
+infrastructure, signs and publishes the releases, and is accountable for what ships. The model does
+the engineering, and separately attacks each design before it is built.
 
 The review procedure is written down and binding rather than informal: every design is attacked by two
 independent adversarial reviews **before any code is written**, and a claim that cannot name the
-artifact it was measured against does not enter the project's decision record. At the time of this
-release that record holds 61 findings and 22 proposed designs, **all 22 refuted** — none of them
-shipped.
+artifact it was measured against does not enter the project's decision record.
 
 Provenance is carried in the git history: commits produced this way carry a `Co-Authored-By` trailer
-naming the model. Human judgement, not the model, decides what is correct.
+naming the model.
 
 ## sing-box attribution
 
