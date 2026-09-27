@@ -52,6 +52,7 @@
          screen would reveal. Channel NUMBERS only — never their addresses. -->
     <string name="diag_title">Connection report</string>
     <string name="diag_intro">Numbers only — no addresses, and nothing about you. Send this to whoever asked you to test.</string>
+    <string name="list_separator">", "</string>
     <string name="diag_working">Routes that answered: %1$s</string>
     <string name="diag_none">No route answered</string>
     <string name="diag_failed">Did not answer: %1$s</string>

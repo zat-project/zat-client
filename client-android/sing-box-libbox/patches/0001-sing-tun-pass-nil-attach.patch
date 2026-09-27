@@ -1,0 +1,16 @@
+--- a/stack_gvisor_filter.go
++++ b/stack_gvisor_filter.go
+@@ -19,6 +19,13 @@
+ }
+ 
+ func (w *LinkEndpointFilter) Attach(dispatcher stack.NetworkDispatcher) {
++	if dispatcher == nil {
++		// nil means the NIC is going away: fdbased.Attach(nil) Stop()s its dispatchers and
++		// Wait()s for them. Wrapping nil in a non-nil filter made that branch unreachable, so
++		// the tun reader outlived its descriptor and held the tun file open.
++		w.LinkEndpoint.Attach(nil)
++		return
++	}
+ 	w.LinkEndpoint.Attach(&networkDispatcherFilter{dispatcher, w.BroadcastAddress, w.Writer})
+ }
+ 

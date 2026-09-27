@@ -120,13 +120,16 @@ class MainActivity : AppCompatActivity() {
         val lines = buildList {
             add(getString(R.string.diag_intro))
             add("")
+            // The separator is a RESOURCE, not a literal: Persian uses U+060C and English a comma,
+            // and hard-coding either one shows the wrong punctuation to every other locale.
+            val sep = getString(R.string.list_separator)
             add(
                 if (r.workingChannels.isEmpty()) getString(R.string.diag_none)
-                else getString(R.string.diag_working, r.workingRouteNumbers.joinToString("، "))
+                else getString(R.string.diag_working, r.workingRouteNumbers.joinToString(sep))
             )
             val failed = r.channels.filter { !it.ok }
             if (failed.isNotEmpty()) {
-                add(getString(R.string.diag_failed, failed.joinToString("، ") { "${it.index + 1} (${it.reason})" }))
+                add(getString(R.string.diag_failed, failed.joinToString(sep) { "${it.index + 1} (${it.reason})" }))
             }
             add(getString(R.string.diag_source, r.source.name.lowercase()))
             if (r.peerRefreshed) add(getString(R.string.diag_peer_refresh))
@@ -138,8 +141,9 @@ class MainActivity : AppCompatActivity() {
             add(getString(R.string.diag_broker, zat.manager.vpn.BrokerReliance.total()))
             add("")
             // The one-liner exists for the case where sending a screenshot is itself risky and the
-            // tester reads it over a call instead. ASCII, terse, retypable.
-            add(r.oneLine())
+            // tester reads it over a call instead. ASCII, terse, retypable. `build=` tells two builds in
+            // the field apart (G31); the commit is public - the release page prints it.
+            add("${r.oneLine()} build=${BuildConfig.GIT_COMMIT}")
         }
         val text = lines.joinToString(System.lineSeparator())
         androidx.appcompat.app.AlertDialog.Builder(this)

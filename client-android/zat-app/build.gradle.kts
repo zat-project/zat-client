@@ -33,7 +33,13 @@ val zatGitCommit: String = (findProperty("zatGitCommit") as String?)
     }.getOrNull()
     ?: "unknown"
 
-val zatKeystorePath = (findProperty("zatKeystore") as String?) ?: System.getenv("ZAT_KEYSTORE")
+// An explicit empty `-PzatKeystore=` means UNSIGNED, even on a machine whose gradle.properties names the
+// release key: that is how the release candidate is built, so the key signs only the tested bytes,
+// afterwards (docs/RELEASE_STOP_LEAK_v0.1.md §3, scripts/sign-release.sh). A command-line -P wins over
+// gradle.properties; without this line an empty path would fail the build instead.
+val zatKeystoreProp = findProperty("zatKeystore") as String?
+val zatKeystorePath = if (zatKeystoreProp != null) zatKeystoreProp.takeIf { it.isNotBlank() }
+    else System.getenv("ZAT_KEYSTORE")?.takeIf { it.isNotBlank() }
 val zatKeystorePass = (findProperty("zatKeystorePassword") as String?) ?: System.getenv("ZAT_KEYSTORE_PASSWORD")
 val zatKeyAliasName = (findProperty("zatKeyAlias") as String?) ?: System.getenv("ZAT_KEY_ALIAS")
 val zatKeyPass = (findProperty("zatKeyPassword") as String?) ?: System.getenv("ZAT_KEY_PASSWORD")
@@ -48,8 +54,8 @@ android {
         // P1 targets 33 to keep the foreground-service model simple (the library's VpnService has no
         // foregroundServiceType); API 34+ hardening (service type + POST_NOTIFICATIONS flow) is P2/P3.
         targetSdk = 33
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
 
         // P1.1 · BUILD PROVENANCE. Without this there is no way to tell which source an APK came
         // from, and that is not theoretical: the signed release artifacts sat for nine days looking

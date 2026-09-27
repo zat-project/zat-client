@@ -10,17 +10,19 @@
 # This script does BOTH: the Docker build, then the split into the right paths. (The Dockerfile's
 # header references this script — keep them in sync.)
 #
-# Usage:   ./build.sh                 # default SINGBOX_TAG below
-#          SINGBOX_TAG=v1.13.13 ./build.sh
+# Usage:   ./build.sh                 # the tag and commit pinned in the Dockerfile
+#          SINGBOX_TAG=vX.Y.Z SINGBOX_COMMIT=<that tag's commit> ./build.sh   # a deliberate bump:
+#          the Dockerfile fails the build unless the tag resolves to the commit, so they move together
 # Needs:   Docker (BuildKit) + unzip. No host Go/NDK — those live inside the image.
 set -euo pipefail
 
 SINGBOX_TAG="${SINGBOX_TAG:-v1.13.13}"
+SINGBOX_COMMIT="${SINGBOX_COMMIT:-}" # empty = the Dockerfile's pinned commit
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CM="$(cd "$HERE/../zat-connection-manager" && pwd)" # the consuming library module
 
 echo ">> building libbox.aar (sing-box ${SINGBOX_TAG}) via Docker → $HERE/out/"
-docker build --output "type=local,dest=$HERE/out" --build-arg "SINGBOX_TAG=${SINGBOX_TAG}" "$HERE"
+docker build --output "type=local,dest=$HERE/out" --build-arg "SINGBOX_TAG=${SINGBOX_TAG}"   ${SINGBOX_COMMIT:+--build-arg "SINGBOX_COMMIT=${SINGBOX_COMMIT}"} "$HERE"
 
 AAR="$HERE/out/libbox.aar"
 [ -f "$AAR" ] || { echo "ERROR: the Docker build produced no $AAR" >&2; exit 1; }

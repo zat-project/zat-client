@@ -6,7 +6,7 @@ source. It contains **only** the code that ships inside the client binary.
 
 > **These binaries:** <https://github.com/zat-project/zat-client/releases>
 >
-> This snapshot corresponds to release **v0.1.0**, built from commit `29b833de0b5f`.
+> This snapshot corresponds to release **v0.1.1**, built from commit `83c9f9a41e87`.
 > Every published `.apk` carries that commit in `BuildConfig.GIT_COMMIT`, and the release page
 > lists a SHA-256 for each file and the signing certificate fingerprint, so you can tie an exact
 > binary to this exact source.
@@ -35,8 +35,9 @@ Only what ships in the client binary is included.
 The two native libraries are built from source, then assembled into the app:
 
 1. **`libbox.so`** (sing-box) — run `client-android/sing-box-libbox/build.sh`. It builds
-   `libbox.so` for all four ABIs hermetically in Docker from a pinned upstream sing-box tag
-   (see the Dockerfile). Because it is reproducible, you can verify the shipped `libbox.so`.
+   `libbox.so` for all four ABIs hermetically in Docker from a pinned upstream sing-box tag and
+   any patch in `client-android/sing-box-libbox/patches/` (see the Dockerfile). Because it is
+   reproducible, you can verify the shipped `libbox.so`.
 2. **`libmeshoprf.so`** (the MIT crypto) — build `client-android/mesh-oprf-rs` for Android
    with `cargo-ndk` (it path-depends on `zat-oprf-client` → `zat-threshold-oprf`, both here).
 3. Place the resulting `.so` files under the app's `jniLibs/<abi>/`
@@ -64,6 +65,7 @@ naming the model.
 ## sing-box attribution
 
 sing-box is © the SagerNet contributors, GPL-3.0-or-later,
-<https://github.com/SagerNet/sing-box>, vendored **unmodified** from a pinned tag. ZAT is not
+<https://github.com/SagerNet/sing-box>, built from a pinned tag with any local patch in
+`client-android/sing-box-libbox/patches/` applied (its README says what and why). ZAT is not
 affiliated with, endorsed by, or a product of the sing-box project, and does not use its name
 or branding beyond this required attribution.

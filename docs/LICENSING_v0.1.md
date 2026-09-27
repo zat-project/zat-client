@@ -21,9 +21,9 @@ code is **not** a derivative; it must only make the (unmodified, upstream) sing-
 | Component | Distributed in the client APK? | License |
 |---|---|---|
 | `client-android/zat-app`, `client-android/zat-connection-manager` (the Kotlin client that links `libbox`) | **Yes** — the GPL trigger | **GPL-3.0-or-later** (`client-android/COPYING`) |
-| `client-android/mesh-oprf-rs`, `zat-oprf-client`, `zat-threshold-oprf` (the client's + shared crypto compiled into `libmeshoprf.so`) | **Yes** (native), but ALSO used by the closed broker/volunteer | **MIT** (`LICENSE-MIT`; `zat-oprf-client`/`zat-threshold-oprf` already declared it) — GPL-compatible (usable inside the GPL client) yet permissive (usable in the closed components), so it does NOT force the volunteer/broker to GPL |
+| `client-android/mesh-oprf-rs`, `zat-oprf-client`, `zat-threshold-oprf` (the client's + shared crypto compiled into `libmeshoprf.so`) | **Yes** (native), but ALSO used by the closed broker/volunteer | **MIT** (`LICENSES/MIT.txt`; `zat-oprf-client`/`zat-threshold-oprf` already declared it) — GPL-compatible (usable inside the GPL client) yet permissive (usable in the closed components), so it does NOT force the volunteer/broker to GPL |
 | `broker`, `volunteer-app`, `volunteer-app-ui`, `zat-dht-node`, `zat-dkg`, `zat-threshold-sign`, `docs/` | **No** — never in the client APK | **Proprietary / all rights reserved** (not published) |
-| `libbox.so` (sing-box) | Yes | **GPL-3.0-or-later**, © SagerNet — upstream, unmodified |
+| `libbox.so` (sing-box) | Yes | **GPL-3.0-or-later**, © SagerNet — upstream at a pinned tag, with one patch to sing-tun (`client-android/sing-box-libbox/patches/`) |
 
 **Why this is both compliant and safe (aligns with master-plan §5.9 / Kerckhoffs):** the client is a
 "dumb" consumer — fetch the signed snapshot, verify its signature, connect via `libbox`. **The security-
@@ -36,9 +36,10 @@ not safety), and source availability is a **trust asset** for a tool that asks p
 
 sing-box is © the SagerNet contributors, GPL-3.0-or-later, from <https://github.com/SagerNet/sing-box>.
 The GPL grants no permission to use the sing-box **name/branding** or imply association without consent —
-so ZAT must not present itself as sing-box or a sing-box product. `libbox` is vendored **unmodified** from
-a pinned tag (see `client-android/sing-box-libbox/Dockerfile`); its corresponding source is that pinned
-upstream tag.
+so ZAT must not present itself as sing-box or a sing-box product. `libbox` is built from a pinned tag
+with **one patch** to sing-tun, a sing-box dependency (see `client-android/sing-box-libbox/Dockerfile` and
+`client-android/sing-box-libbox/patches/README.md`, the modification notice GPL-3.0 §5(a) asks for); its
+corresponding source is that pinned upstream tag plus that patch.
 
 ## Providing the corresponding source (GPL §6)
 

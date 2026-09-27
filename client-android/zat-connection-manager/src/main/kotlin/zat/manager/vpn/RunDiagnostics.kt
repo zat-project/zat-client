@@ -93,7 +93,7 @@ object RunDiagnostics {
     /**
      * The furthest stage reached. The whole vocabulary, so a reader of a returned report can decode
      * it without the source: `not_started`, `bootstrap`, `bootstrap_failed`, `two_hop_up`,
-     * `engine_up`. Anything added here must also be added to `docs/IN_COUNTRY_TEST_fa.md`, which is
+     * `engine_up`. Anything added here must also be added to `docs/IN_COUNTRY_TEST.md`, which is
      * what someone actually reads the report against.
      */
     @Synchronized

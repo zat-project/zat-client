@@ -46,7 +46,10 @@ cd ../mesh-oprf-rs && ./build.sh          # → mesh-oprf-rs/jniLibs/<abi>/libme
 cd ../zat-app && ./gradlew assembleRelease
 ```
 
-`libbox` is pinned to sing-box `v1.13.13` (bump deliberately in the Dockerfile + `build.sh`). The
+`libbox` is pinned to sing-box `v1.13.13` at commit `78b2e12f` (bump deliberately: `SINGBOX_TAG` and
+`SINGBOX_COMMIT` together, in the Dockerfile + `build.sh`). The build applies one local patch to sing-tun, a sing-box
+dependency, that stops the engine's tun reader when the VPN stops — see
+`client-android/sing-box-libbox/patches/README.md` for what, why and when. The
 release `libmeshoprf.so` carries NO server-side OPRF (the `self_test` diagnostic is Cargo-feature-gated
 OFF; `MESHOPRF_SELF_TEST=1` compiles it in for a dev build only).
 

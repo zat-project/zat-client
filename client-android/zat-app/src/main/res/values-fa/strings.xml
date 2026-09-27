@@ -46,6 +46,7 @@
     <!-- #46 · گزارشِ تستر. با نگه‌داشتنِ طولانیِ خطِ وضعیت باز می‌شود. فقط شماره — هیچ آدرسی. -->
     <string name="diag_title">گزارش اتصال</string>
     <string name="diag_intro">فقط شماره — نه آدرسی، نه چیزی دربارهٔ شما. این را برای کسی که از شما خواست تست کنید بفرستید.</string>
+    <string name="list_separator">"، "</string>
     <string name="diag_working">مسیرهایی که جواب دادند: %1$s</string>
     <string name="diag_none">هیچ مسیری جواب نداد</string>
     <string name="diag_failed">جواب ندادند: %1$s</string>
